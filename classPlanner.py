@@ -45,7 +45,7 @@ class classPlanner:
         for i in self.resdata['r']['dbiAccessorRes']['tables'][18]['data_rows']:
             if i['id'] in lessonIds:
                 for j in self.resdata['r']['dbiAccessorRes']['tables'][13]['data_rows']:
-                    if j['id'] == i['subjectid']:
+                    if j['id'] == i['subjectid'] and j['name']:
                         subjectNames.append(j['name'])
                         break
         return subjectNames
@@ -69,6 +69,8 @@ class classPlanner:
         return lessonsForTheDay
         # TODO - Wyświetlić w tej samej linii lekcje podzielone na grupy (/)
     def createCodeBlockResponse(self, array):   #Formatowanie outputa jako discordowego bloku code w pionowej liście
+        if array == self.getSubjectNames():
+            array = list(dict.fromkeys(array))
         response = """```\n{}```""".format("\n".join(array))
         print(response)
         return response

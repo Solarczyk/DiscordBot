@@ -29,7 +29,7 @@ async def on_ready() -> None:
 @bot.tree.command(name="plan")  #Wyświetl plan lekcji na konkretny dzień
 @app_commands.describe(klasa="Nazwa klasy", day="Dzień tygodnia, dla którego ma być wyświetlony plan")
 async def plan(interaction: discord.Interaction, klasa: str, day: str):
-
+    klasa = klasa.lower()
     if day == "1" or day == "poniedzialek":
         day = "poniedziałek"
     if day == '2':
