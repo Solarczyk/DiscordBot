@@ -100,7 +100,7 @@ Metoda tworzy listę, do której dodawane są ID gabinetów wykorzystywanych w p
 ![Diagram aktywności](https://images-ext-1.discordapp.net/external/IFgvuUCeoiyOOYhh7g-Ujq0hf8Uz2q3YwBu-0vbeLw0/https/cdn-0.plantuml.com/plantuml/png/NL0zZl8m5EnzYYd35K93yKcVwEXMelF6XhpWF4TvZY97LAjTxHau1qSWt6jD2D9k6akU6S-FDn9q6xhQANN-V_-uNNkEPpM1AjzhOYgghe8Z2UC5XTCYhVVrriXQzIKvYsmRR9iaZKTFjfL15oMCvbYKAv0Wwscy5BQQsVZY593l_7i21x1-s3SSPz6iMIk03iZUdc2ZfQiiZ8TXqY0SlHc8umgXj8miwDF35SZ_UQChaB4Sue5EElWMeXsbjzEKk5W2M2SM6PET7NQ-flidWkMvqYHYGmULpccvUbJxxOFAIa3JIR2BIlc-Rs_NyJkHKpYDNqSCh4_flzVgJ_PBkcZuZ9RW6wKswTBLxWS0?format=webp&width=647&height=628)
 
 ### getClassroomNames
-Metoda tworzy listę, do której dodawane są na podstawie poprzedniej metody *getClassroomIds* nazwy klas
+Metoda tworzy listę, do której dodawane są nazwy klas nieznajdujące się w liście z metody *getClassroomIds*, ale zgodne z poprzednimi kryteriami. Zwracana jest lista z gabinetami nie użytkowanymi w danym dniu o danej godzinie.
 
 ![Diagram aktywności](https://images-ext-1.discordapp.net/external/CHhiEFSD1Mu8hbsSWSGyHNn9vmwwGPt0MflR_Bs8pi8/https/cdn-0.plantuml.com/plantuml/png/TL4nRiCm3Dpr2ex95vmbGu72Iv6bIz15iPIQjamPfWn1HgQYGD-GTsJj5kTVPGmNBU3MWmVUKNV7stBGNUWRfzJfyVPslKHA9pKDLRRNI5XKVGKEEOndA9ncxhnlddHZUQEovo5nhIj0Ooca8zOw-0uElKbKz__X2LWxtAXOehEmoeFjHABr4D5sFEYY1ACf5UKQa64LSJmNjfhHz8qfW6pd3p8SWFJTNajf9isSZN3mA0g_rITn8BIovUpjCu7nFy5omo-4aF-L1rhDVMM5BnDq1karDsi8fILO1LsB9Vco1syaCUaXZkT9J1OMbmEmZYMy-9ZNThx1spi4IyiGbWmUbVodaodXifVMgcKX-zXTB-F70k3WMwMsyiIzwoy0?format=webp&width=645&height=662)
 
