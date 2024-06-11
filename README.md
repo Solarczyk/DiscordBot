@@ -15,7 +15,7 @@ Aktualnie planowane funkcjonalności (mogą ulec zmianie w dalszych etapach):
 # Instrukcja pozyskiwania informacji o planie
 Na stronie [planu lekcji](https://zsel.edupage.org/timetable/) należy:
 1. Wcisnąć `ctrl+shift+c` i wejść do zakładki *Network*, a następnie do *Fetch/XHR*
-![wynik punktu pierwszego](https://media.discordapp.net/attachments/809756120125538325/1247286969176821900/discordguide-1.png?ex=665f7a02&is=665e2882&hm=8e25f11dbaccff4d9e43ab695f3c6d85a37356d8bc6347739aa56bd42b52773d&=&format=webp&quality=lossless&width=1440&height=535)
+![wynik punktu pierwszego](https://media.discordapp.net/attachments/809756120125538325/1247286969176821900/discordguide-1.png?ex=6668b482&is=66676302&hm=611577a169635a7e304691609cbb2007608ea3b1b2ddd641b5ece2714ead3b36&=&format=webp&quality=lossless&width=687&height=256)
 2. Odświeżyć stronę. Powinny pojawić się następujące odpowiedzi:
 ![wynik punktu drugiego](https://media.discordapp.net/attachments/809756120125538325/1247287332328050708/image.png?ex=665f7a59&is=665e28d9&hm=177dede9437d75d21f79554b6466d1dff60443cc46432b1719157b8a8c6dc61f&=&format=webp&quality=lossless&width=1236&height=522)
 3. Wybrać odpowiedź z końcówką `regularttGetData`
@@ -44,18 +44,20 @@ kolejność wczytywania planu lessons -> cards -> output
 * Podawane dane nie wymagają używania polskich znaków, oraz nie ma znaczenia także wielkość liter
 * Zwracane przez bota dane są prezentowane w formię bloku kodu wysyłanego na czacie, z którego wysłano komendę
 * Przy nieobsłużonym wyjątku bot przestanie działać. Należy uruchomić skrypt ponownie
+* Token bota znajduje się w pliku `.env`. W przypadku tworzenia nowego bota używającego tego kodu należy wkleić unikatowy token do tego pliku.
+* Utworzenie nowego bota należy zrobić przez stronę [developers](https://discord.com/developers/applications) discorda.
 
 # Klasy wykorzystywane przez Bota
 ## classPlanner
-**classPlanner** odpowiada za interpretację danych pozyskanych z jsona z klasy *dataReader* i wysłanie ich w odpowiednim formacie. Klasa jest następnie wywoływana przez *main* w odpowiedniej komendzie
+**classPlanner** odpowiada za interpretację danych związanych z klasami pozyskanych z jsona z klasy *dataReader* i wysłanie ich w odpowiednim formacie. Klasa jest następnie wywoływana przez *main* w odpowiedniej komendzie
 
-![Diagram UML klasy classPlanner](https://media.discordapp.net/attachments/809756120125538325/1247290242411790356/PP11IiOm48NtFKMM_S5Ue0kfLWH1YjW3X6aoIZHDoinqKSIxEzOQmMOHoBplumtfM81adMFb8Z2R_NwAa1AI-QYCdiOacB4rB7Iy2Tc3G6jyS7BCF6n_YBKX1R6sBkPL0IuxyOhIVrSz-FfYckjYwlmEjXiUrdb2EcMFo9oJMlmJnS3ocuthz8PE1gqyfSMyppGkwC9BSDhp3tE48DXdZxSnk_Tdv4KLh858bz-vij1drM7o-d5V.png?ex=665f7d0f&is=665e2b8f&hm=7858b142fc90775dcbf31977e3487c3e287740b4801965bba5b59793661c8e99&=&format=webp&quality=lossless&width=420&height=287)
+![Diagram UML klasy classPlanner](https://media.discordapp.net/attachments/809756120125538325/1247290242411790356/PP11IiOm48NtFKMM_S5Ue0kfLWH1YjW3X6aoIZHDoinqKSIxEzOQmMOHoBplumtfM81adMFb8Z2R_NwAa1AI-QYCdiOacB4rB7Iy2Tc3G6jyS7BCF6n_YBKX1R6sBkPL0IuxyOhIVrSz-FfYckjYwlmEjXiUrdb2EcMFo9oJMlmJnS3ocuthz8PE1gqyfSMyppGkwC9BSDhp3tE48DXdZxSnk_Tdv4KLh858bz-vij1drM7o-d5V.png?ex=6668b78f&is=6667660f&hm=9307fce4635c30eb7e1798c5e74e6823f6df68d6eaf04dae0eab9aac2022222d&=&format=webp&quality=lossless&width=420&height=287)
 
 W klasie występują podane metody:
 ### getClassId
 Jako dane wejściowe podane są przez użytkownika dane: nazwa klasy i dzień. Metoda najpierw odpowiednio formatuje odpowiedź, a następnie przeszukuje tabelę[12] i zwraca id (string).
 
-![Diagram aktywności](https://media.discordapp.net/attachments/809756120125538325/1247295081564733633/FP0nSiCW44LxJl4xf2j8HTogoQJFk5XBQtib30oiHcFrEKJkuuE58Obe-0pl3uyzPQMawyEP6aptaVRdBMZOo0jZT9JpEpsuDztWPPp9oKvb-xqP9ioq1CGrwnEZlBvklKaScTG0tQ2SAXpJpZkKBknUtx2rozds1f0hckCLp9mL6-JJ-dAqvxSMUcUFHcbf3SggWb5orIkSJFQCAVpxz1Mw9AQb9FQJNF-4iDt5CPhIQqsNMDVaZrRvVOZcLFWoYXy0.png?ex=665f8191&is=665e3011&hm=d6d5d9637f4fe2c7775e874d5bbfc1826eaa5918742fd52cd72711925465b1a7&=&format=webp&quality=lossless&width=337&height=662)
+![Diagram aktywności](https://media.discordapp.net/attachments/809756120125538325/1247295081564733633/FP0nSiCW44LxJl4xf2j8HTogoQJFk5XBQtib30oiHcFrEKJkuuE58Obe-0pl3uyzPQMawyEP6aptaVRdBMZOo0jZT9JpEpsuDztWPPp9oKvb-xqP9ioq1CGrwnEZlBvklKaScTG0tQ2SAXpJpZkKBknUtx2rozds1f0hckCLp9mL6-JJ-dAqvxSMUcUFHcbf3SggWb5orIkSJFQCAVpxz1Mw9AQb9FQJNF-4iDt5CPhIQqsNMDVaZrRvVOZcLFWoYXy0.png?ex=6668bc11&is=66676a91&hm=788fe4412925bca3caf884e5a984715b630a23520c18a6b6834d9a47e48cb1cc&=&format=webp&quality=lossless&width=337&height=662)
 
 ### getDayAsNumber
 Format dnia zastosowany w jsonie składa się z 5 cyfr, z których jedna to 1 (dzień tygodnia), a reszta to zera. Metoda przekształca odpowiedź użytkownika do odpowiedniego formatu i zwraca jako string (jeżeli podano nieprawidłowy dzień zwracany jest pusty string).
@@ -78,7 +80,30 @@ Metoda wykorzystuje wyniki poprzednich metod do skonstruowania i zwrócenia list
 ![Diagram aktywności](https://media.discordapp.net/attachments/809756120125538325/1247301527060615238/nLJ1YjH04BtdAzujCuZWNYVike880w8U50_37cgcQtSgoNI7xWuXVHpm8sG_mqzmyrzsqgiEHXP5P4zfwbNLUw-goANpP7rxgBFfaQtMMdObrH8eVh0thNKegJ9uLcIhZtrdXYDfOTomVqdz2_UcFMpPBfOHVMT3tuYRuAxNKhLG1ehwMULhTivejrRkWS9wIeevHMQvOV8Pi5fxjfEonWOEyBJb-kupyXrPvV8Y0-GQ2zdaaTRbLpW_7mN0M0g8qTHJL4HATXxTJvRdI_WzQomyLSiC07wm0WymfmQ96qZy9qn9Gxd9fsVIeVsOqR0L4uDBNAGvpnGauW_EKoUiXK_NCMloP0f58jLQyc9qWjo8FSNPTtcibLoVs4EtbvgnqC8ZPuBdqA-7SU_wbR7lznmF8Ocg9Mg5WHgExOqPRdToBpcC3YoLTvzs16KE_N1RwnukLC8rUuHjgqn7CHGORZX-_T8XVnj1NPdyiVP_ClcPtyri_d76LsaAHZKc..png?ex=665f8791&is=665e3611&hm=420a490a0377274fd6ad9bf5043ea8adfe51f9bde37b28dc7bf509475116c739&=&format=webp&quality=lossless&width=322&height=662)
 
 ### createCodeBlockResponse
-Metoda formuje dane przekazane z jakiejkolwiek listy jako `discord code block` (string) w formie kolumny (możliwe przeniesienie metody do osobnej klasy w przyszłości). 
+Metoda formuje dane przekazane z jakiejkolwiek listy jako `discord code block` (string) w formie kolumny (możliwe przeniesienie metody do osobnej klasy w przyszłości).
+Mieści się także w innych klasach, lecz nie ma między nimi zbyt wielkiej różnicy.
+
+## classroomPlanner
+**classroomPlanner** odpowiada za interpretację danych związanych z gabinetami pozyskanych z jsona z klasy *dataReader* i wysłanie ich w odpowiednim formacie. Klasa jest następnie wywoływana przez *main* w odpowiedniej komendzie.
+
+![Diagram UML klasy classPlanner](https://images-ext-1.discordapp.net/external/E8kcn_6FDg7rJtDsrrhUM_zMdlj7AxVT9yIXjqzxk9A/https/cdn-0.plantuml.com/plantuml/png/RO_DIiKm48NtUOfPzgA-G5UNUrS54N4h4iRCK8FvaPd9eeZlheqjM70JCjzt3icSrL2ivUHSIAWA_PHQipucB8K5FXt07GWheU4858DrGhYC4Clly5QRZA0cVNfjCL4iyqvkmFjOeda_xAtRhTAlX_of5sQsoqOd6axTxEAw_d4YNV5zL7l-SIy7kIxmW9d_YGHXDBvMuakguVs9zQCMvG55SFaJtfxySkxCXLfEtm00?format=webp&width=457&height=267)
+
+W klasie występują podane metody:
+### getBuildingId
+Podana przez użytkownika w konstruktorze nazwa budynku jest konwertowana do ID (do wyboru możliwe: główny (main), gimnazjum)
+
+![Diagram aktywności](https://images-ext-1.discordapp.net/external/n1EhjzzgDTRwrAL-GMJFCce_uFm9XMvyDF9In1VbZDk/https/cdn-0.plantuml.com/plantuml/png/VP2nJeSm4CRtUufB9t0mqH52mkRcucPSshHWeRsIqeP0c5ny83PNvBr4msBoX_7kTx_lag_i0_SXMWCmFsqVwpBGECFV4hANplD1Rb_edPnuWoBAaTgOWwumwPMfxaNKHcggiIYGrOVFq4JnHZSEZBl2bcjYAOPtHPW4tgQ0cBqEVbs-Fv7TFR0SbEdLoNDjYKzDj1S9ZzS9tWd3p_L3neIq-aUU7QcTaTJLtfph0Cfz-Etq1m00?format=webp&width=911&height=351)
+
+### getClassroomIds
+Metoda tworzy listę, do której dodawane są ID gabinetów wykorzystywanych w podanym przez użytkownika dniu i godzinie.
+
+![Diagram aktywności](https://images-ext-1.discordapp.net/external/IFgvuUCeoiyOOYhh7g-Ujq0hf8Uz2q3YwBu-0vbeLw0/https/cdn-0.plantuml.com/plantuml/png/NL0zZl8m5EnzYYd35K93yKcVwEXMelF6XhpWF4TvZY97LAjTxHau1qSWt6jD2D9k6akU6S-FDn9q6xhQANN-V_-uNNkEPpM1AjzhOYgghe8Z2UC5XTCYhVVrriXQzIKvYsmRR9iaZKTFjfL15oMCvbYKAv0Wwscy5BQQsVZY593l_7i21x1-s3SSPz6iMIk03iZUdc2ZfQiiZ8TXqY0SlHc8umgXj8miwDF35SZ_UQChaB4Sue5EElWMeXsbjzEKk5W2M2SM6PET7NQ-flidWkMvqYHYGmULpccvUbJxxOFAIa3JIR2BIlc-Rs_NyJkHKpYDNqSCh4_flzVgJ_PBkcZuZ9RW6wKswTBLxWS0?format=webp&width=647&height=628)
+
+### getClassroomNames
+Metoda tworzy listę, do której dodawane są na podstawie poprzedniej metody *getClassroomIds* nazwy klas
+
+![Diagram aktywności](https://images-ext-1.discordapp.net/external/CHhiEFSD1Mu8hbsSWSGyHNn9vmwwGPt0MflR_Bs8pi8/https/cdn-0.plantuml.com/plantuml/png/TL4nRiCm3Dpr2ex95vmbGu72Iv6bIz15iPIQjamPfWn1HgQYGD-GTsJj5kTVPGmNBU3MWmVUKNV7stBGNUWRfzJfyVPslKHA9pKDLRRNI5XKVGKEEOndA9ncxhnlddHZUQEovo5nhIj0Ooca8zOw-0uElKbKz__X2LWxtAXOehEmoeFjHABr4D5sFEYY1ACf5UKQa64LSJmNjfhHz8qfW6pd3p8SWFJTNajf9isSZN3mA0g_rITn8BIovUpjCu7nFy5omo-4aF-L1rhDVMM5BnDq1karDsi8fILO1LsB9Vco1syaCUaXZkT9J1OMbmEmZYMy-9ZNThx1spi4IyiGbWmUbVodaodXifVMgcKX-zXTB-F70k3WMwMsyiIzwoy0?format=webp&width=645&height=662)
+
 
 # Dodatkowe informacje
 Instrukcja, podobnie jak cały program, jest nadal w procesie budowy i nie jest finalną wersją. W razie konieczności treść instrukcji będzie aktualizowana.
