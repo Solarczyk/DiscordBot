@@ -37,14 +37,14 @@ Przedstawione zostaną tylko fragmenty przydatne dla projektu. Liczby podane w n
 kolejność wczytywania planu lessons -> cards -> output
 
 
-# Obsługa bota
+# Obsługa bot
 * Skrypt powinien być uruchamiany przez jedno urządzenie (Prawdopodobne użycie hostingu w późniejszych etapach).
 * Bot aktualnie ma dostęp do odczytywania i odpowiadania na komendy na każdym kanale tekstowym
 * Bot używa systemu komend z prefixem `/`
 * Podawane dane nie wymagają używania polskich znaków, oraz nie ma znaczenia także wielkość liter
 * Zwracane przez bota dane są prezentowane w formię bloku kodu wysyłanego na czacie, z którego wysłano komendę
 * Przy nieobsłużonym wyjątku bot przestanie działać. Należy uruchomić skrypt ponownie
-* Token bota znajduje się w pliku `.env`. W przypadku tworzenia nowego bota używającego tego kodu należy wkleić unikatowy token do tego pliku.
+* Token bota powinien znajdować się w pliku `.env`. W przypadku tworzenia nowego bota używającego tego kodu należy wkleić unikatowy token do tego pliku. Token nie jest zawarty w projekcie - trzeba go wygenerować samemu
 * Utworzenie nowego bota należy zrobić przez stronę [developers](https://discord.com/developers/applications) discorda.
 
 # Klasy wykorzystywane przez Bota
