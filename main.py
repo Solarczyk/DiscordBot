@@ -59,25 +59,33 @@ async def subjects(interaction: discord.Interaction, klasa: str):
 
 
 @bot.tree.command(name="okienka")  #Wyświetl wolne gabinety na dany dzień !!!JESZCZE NIE DZIAŁA POPRAWNIE!!!
-@app_commands.describe(day="Dzień tygodnia, dla którego mają być wyświetlone wolne sale")
-async def okienka(interaction: discord.Interaction, day: str):
-
+@app_commands.describe(day="Dzień tygodnia, dla którego mają być wyświetlone wolne sale", hour="Godzina lekcyjna", building="Budynek (do wyboru: główny, gimnazjum")
+async def okienka(interaction: discord.Interaction, day: str, hour: int, building: str):
+    displayDate = ""
     if day == "poniedziałek" or day == "poniedzialek" or day == "1":
-        day = "0"
+        day = "10000"
+        displayDate = "poniedziałek"
     if day == "wtorek" or day == "2":
-        day = "1"
+        day = "01000"
+        displayDate = "wtorek"
     if day == "środa" or day == 'sroda' or day == "3":
-        day = "2"
+        day = "00100"
+        displayDate = "środę"
     if day == "czwartek" or day == "4":
-        day = "3"
+        day = "00010"
+        displayDate = "czwartek"
     if day == "piątek" or day == "piatek" or day == "5":
-        day = "4"
-    classroomsP = classroomsPlanner(day)
+        day = "00001"
+        displayDate = "piątek"
+    building = building.lower()
+    classroomsP = classroomsPlanner(day, hour, building)
 
-    if classroomsP.getClassIds() == "":
+    if hour < 1 or hour > 9:
+        await interaction.response.send_message("Podano nieprawidłową godzinę (skala tylko od 1 do 9)")
+    elif classroomsP.getClassIds() == "":
         await interaction.response.send_message("Podano nieprawidłową nazwę dnia tygodnia")
     else:
-        await interaction.response.send_message("Wolne klasy na podany dzień: "+classroomsP.createCodeBlockResponse(classroomsP.sortClassroomsByHour()))
+        await interaction.response.send_message(f"Wolne klasy w {displayDate} na {hour} godzinie w budynku - {building}: "+classroomsP.createCodeBlockResponse(classroomsP.getClassroomNames()))
 
 #CREATE MAIN ENTRY POINT
 def main() -> None:

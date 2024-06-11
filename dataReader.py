@@ -5,7 +5,7 @@ url = "https://zsel.edupage.org/timetable/server/regulartt.js"
 
 querystring = {"__func":"regularttGetData"}
 
-payload = "{\"__args\":[null,\"68\"],\"__gsh\":\"00000000\"}"
+payload = "{\"__args\":[null,\"69\"],\"__gsh\":\"00000000\"}"
 headers = {
     'accept': "*/*",
     'accept-language': "en-US,en-GB;q=0.9,en;q=0.8,pl-PL;q=0.7,pl;q=0.6",
